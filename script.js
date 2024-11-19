@@ -30,7 +30,8 @@ function spawnTile() {
 	const emptyCells = [];
 	grid.forEach((row, rIndex) => {
 		row.forEach((cell, cIndex) => {
-			if (cell === 0) emptyCells.push({ rIndex, cIndex });
+			if (cell === 0)
+				emptyCells.push({ rIndex, cIndex });
 		});
 	});
 
@@ -55,7 +56,8 @@ function slideRow(row) {
 			newRow.push(filteredRow[0] * 2);
 			score += filteredRow[0] * 2;
 			filteredRow.splice(0, 2);
-		} else {
+		}
+		else {
 			newRow.push(filteredRow.shift());
 		}
 	}
@@ -110,10 +112,10 @@ function checkGameOver() {
 	for (let r = 0; r < gridSize; r++) {
 		for (let c = 0; c < gridSize; c++) {
 			if (
-				(r > 0 && grid[r][c] === grid[r - 1][c]) || // Arriba
-				(r < gridSize - 1 && grid[r][c] === grid[r + 1][c]) || // Abajo
-				(c > 0 && grid[r][c] === grid[r][c - 1]) || // Izquierda
-				(c < gridSize - 1 && grid[r][c] === grid[r][c + 1]) // Derecha
+				(r > 0 && grid[r][c] === grid[r - 1][c]) ||
+				(r < gridSize - 1 && grid[r][c] === grid[r + 1][c]) ||
+				(c > 0 && grid[r][c] === grid[r][c - 1]) ||
+				(c < gridSize - 1 && grid[r][c] === grid[r][c + 1])
 			) {
 				return false;
 			}
